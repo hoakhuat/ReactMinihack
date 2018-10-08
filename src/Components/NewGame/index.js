@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
-import { API_ROOT } from '../../statics';
+import { API_ROOT } from '../statics';
 
 
 class NewGame extends Component {
