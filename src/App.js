@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import Navbar from './Components/Navbar';
 import axios from 'axios';
+import { API_ROOT } from './statics';
 
 // import logo from './logo.svg';
 import NewGame from './Components/NewGame';
@@ -17,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     const { gameId } = this.state;
-    axios.get(`http://localhost:6969/api/game/${gameId}`)
+    axios.get(`${API_ROOT}/api/game/${gameId}`)
       .then(response => {
         if(response.data && response.data.success) {
           this.setState({ game: response.data.game });
@@ -27,7 +28,7 @@ class App extends Component {
   }
 
   updateGameState = (gameData) => {
-    axios.put(`http://localhost:6969/api/game`, { gameId: gameData._id, scores: gameData.scores } )
+    axios.put(`${API_ROOT}/api/game`, { gameId: gameData._id, scores: gameData.scores } )
       .then(response => {
         if(response.data && response.data.success) {
           console.log("success");

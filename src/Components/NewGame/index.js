@@ -14,7 +14,7 @@ class NewGame extends Component {
         const { players } = this.state;
 
         axios({
-            url: 'http://localhost:6969/api/game',
+            url: `${API_ROOT}/api/game`,
             method: 'POST',
             data: {
                 players,
